@@ -43,7 +43,7 @@ public class LogInPage {
 	 */
 	private void initialize() {
 		frame = new JFrame();
-		frame.setBounds(100, 100, 455, 332);
+		frame.setBounds(100, 100, 450, 328);
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frame.getContentPane().setLayout(null);
 		
