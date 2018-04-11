@@ -44,7 +44,7 @@ public class LogInPage {
 	private void initialize() {
 		frame = new JFrame();
 		frame.setBounds(100, 100, 460, 330);
-		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		frame.setDefaultCloseOperation(JFrame.HIDE_ON_CLOSE);
 		frame.getContentPane().setLayout(null);
 		
 		JLabel lblLogn = new JLabel("Login");
@@ -90,6 +90,8 @@ public class LogInPage {
 		JButton btnSignup = new JButton("Sign Up");
 		btnSignup.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
+				SignUpPage signUpPage = new SignUpPage();
+				signUpPage.setVisible(true);
 			}
 		});
 		btnSignup.setBounds(305, 228, 89, 23);
