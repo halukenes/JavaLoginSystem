@@ -85,12 +85,14 @@ public class SignUpPage extends JFrame {
 		getContentPane().add(lblPassword_1);
 
 		JButton btnSubmit = new JButton("Submit");
+		btnSubmit.setFont(new Font("Calibri", Font.BOLD, 13));
 		btnSubmit.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 				try {
 					if(password.getText().equals(cpassword.getText())) {
 						insertDB(username.getText(), password.getText());
 						JOptionPane.showMessageDialog(label, "You successfully signed in!");
+						dispose();
 					} else {
 						JOptionPane.showMessageDialog(label, "Your have confirmed your password wrong!");
 					}					
@@ -109,10 +111,12 @@ public class SignUpPage extends JFrame {
 		getContentPane().add(btnSubmit);
 
 		JButton btnLogin = new JButton("Login");
+		btnLogin.setFont(new Font("Calibri", Font.PLAIN, 12));
 		btnLogin.setBounds(305, 248, 89, 23);
 		getContentPane().add(btnLogin);
 
 		JLabel lblAlreadyHaveAn = new JLabel("Already have an account?");
+		lblAlreadyHaveAn.setFont(new Font("Calibri", Font.PLAIN, 11));
 		lblAlreadyHaveAn.setBounds(305, 232, 126, 14);
 		getContentPane().add(lblAlreadyHaveAn);
 

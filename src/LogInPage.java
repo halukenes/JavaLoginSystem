@@ -20,7 +20,7 @@ import javax.swing.JPasswordField;
 
 public class LogInPage {
 
-	private JFrame frame;
+	public  JFrame frame;
 	private JTextField username;
 	private JPasswordField password;
 	public static final String SQL_STATEMENT = "select * from users";
@@ -66,6 +66,7 @@ public class LogInPage {
 		if (connection != null)
 			connection.close();
 		return existInDB;
+	
 	}
 
 	/**
@@ -103,11 +104,14 @@ public class LogInPage {
 		frame.getContentPane().add(lblPassword);
 
 		JButton btnLogin = new JButton("Login");
+		btnLogin.setFont(new Font("Calibri", Font.BOLD, 13));
 		btnLogin.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 				try {
 					if(checkDB(username.getText(), password.getText())) {
-						JOptionPane.showMessageDialog(frame, "You succesfully login!");
+						UserPage userPage = new UserPage();
+						userPage.setVisible(true);
+						frame.dispose();
 					} else {
 						JOptionPane.showMessageDialog(frame, "Incorrect username or password!");
 					}
@@ -123,6 +127,7 @@ public class LogInPage {
 		frame.getContentPane().add(btnLogin);
 
 		JButton btnSignup = new JButton("Sign Up");
+		btnSignup.setFont(new Font("Calibri", Font.PLAIN, 12));
 		btnSignup.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				SignUpPage signUpPage = new SignUpPage();
@@ -133,6 +138,7 @@ public class LogInPage {
 		frame.getContentPane().add(btnSignup);
 
 		JLabel lblDontYouHave = new JLabel("Don't have an account?");
+		lblDontYouHave.setFont(new Font("Calibri", Font.PLAIN, 11));
 		lblDontYouHave.setBounds(305, 212, 113, 14);
 		frame.getContentPane().add(lblDontYouHave);
 
