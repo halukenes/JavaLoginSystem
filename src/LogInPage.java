@@ -12,8 +12,8 @@ import java.awt.event.ActionEvent;
 public class LogInPage {
 
 	private JFrame frame;
-	private JTextField textField;
-	private JTextField textField_1;
+	private JTextField username;
+	private JTextField password;
 
 	/**
 	 * Launch the application.
@@ -43,7 +43,7 @@ public class LogInPage {
 	 */
 	private void initialize() {
 		frame = new JFrame();
-		frame.setBounds(100, 100, 450, 328);
+		frame.setBounds(100, 100, 460, 330);
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frame.getContentPane().setLayout(null);
 		
@@ -57,10 +57,10 @@ public class LogInPage {
 		lblNewLabel.setBounds(50, 66, 210, 14);
 		frame.getContentPane().add(lblNewLabel);
 		
-		textField = new JTextField();
-		textField.setBounds(50, 118, 210, 20);
-		frame.getContentPane().add(textField);
-		textField.setColumns(10);
+		username = new JTextField();
+		username.setBounds(50, 118, 210, 20);
+		frame.getContentPane().add(username);
+		username.setColumns(10);
 		
 		JLabel lblUsername = new JLabel("Username");
 		lblUsername.setFont(new Font("Calibri", Font.BOLD, 12));
@@ -72,10 +72,10 @@ public class LogInPage {
 		lblPassword.setBounds(50, 160, 51, 14);
 		frame.getContentPane().add(lblPassword);
 		
-		textField_1 = new JTextField();
-		textField_1.setBounds(50, 176, 210, 20);
-		frame.getContentPane().add(textField_1);
-		textField_1.setColumns(10);
+		password = new JTextField();
+		password.setBounds(50, 176, 210, 20);
+		frame.getContentPane().add(password);
+		password.setColumns(10);
 		
 		JButton btnLogin = new JButton("Login");
 		btnLogin.addActionListener(new ActionListener() {
@@ -87,12 +87,16 @@ public class LogInPage {
 		btnLogin.setBounds(50, 228, 89, 23);
 		frame.getContentPane().add(btnLogin);
 		
-		JButton btnSignin = new JButton("Sign Up");
-		btnSignin.addActionListener(new ActionListener() {
+		JButton btnSignup = new JButton("Sign Up");
+		btnSignup.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 			}
 		});
-		btnSignin.setBounds(305, 228, 89, 23);
-		frame.getContentPane().add(btnSignin);
+		btnSignup.setBounds(305, 228, 89, 23);
+		frame.getContentPane().add(btnSignup);
+		
+		JLabel lblDontYouHave = new JLabel("Don't have an account?");
+		lblDontYouHave.setBounds(305, 212, 113, 14);
+		frame.getContentPane().add(lblDontYouHave);
 	}
 }
