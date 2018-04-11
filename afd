@@ -1,0 +1,79 @@
+[33mcommit 46d4856d433573ca7692a937f819eeb2643be12c[m[33m ([m[1;36mHEAD -> [m[1;32mmaster[m[33m, [m[1;31morigin/master[m[33m)[m
+Author: halukenes <halukenes97@gmail.com>
+Date:   Wed Apr 11 17:37:47 2018 +0300
+
+    Finished design of UserPage.java and finished code of UserPage.java. Updated code on LogInPage.java and SignUpPage.java to opening new windows.New font and font size on LogInPage.java and SignUpPage.java
+
+[33mcommit 9c9ec78f2dfa30831e34fa5e03399708aa1c2abb[m
+Author: halukenes <halukenes97@gmail.com>
+Date:   Wed Apr 11 15:57:15 2018 +0300
+
+    Created UserPage.java
+
+[33mcommit f51ea3972b0434f8cf3159ac21d8978dd438f8c5[m
+Author: halukenes <halukenes97@gmail.com>
+Date:   Wed Apr 11 15:53:43 2018 +0300
+
+    Connection between SignUnPage.java and database(users table) is completed and insertDB method added
+
+[33mcommit 4ca9df1c3970bd851ed04e52eff5536eaa0bcab4[m
+Author: halukenes <halukenes97@gmail.com>
+Date:   Wed Apr 11 15:38:28 2018 +0300
+
+    Connection between LogInPage.java and database(users table) is completed.
+
+[33mcommit 278414f1860b230ee5937916f2a381dc0859c788[m
+Author: halukenes <37362849+halukenes@users.noreply.github.com>
+Date:   Wed Apr 11 14:36:03 2018 +0300
+
+    Rename Java.gitignore to .gitignore
+
+[33mcommit d7a4b44edae8084eefb40b4a3c456428b1bc9b06[m
+Author: halukenes <37362849+halukenes@users.noreply.github.com>
+Date:   Wed Apr 11 14:35:34 2018 +0300
+
+    Add files via upload
+    
+    Added Java.gitignore to repository
+
+[33mcommit e003bd5536e9eff9564afa8e923b6318437ad75b[m
+Author: halukenes <halukenes97@gmail.com>
+Date:   Wed Apr 11 13:28:14 2018 +0300
+
+    Updated SignUpPage.java to JFrame and added actionListener to btnSignup in LogInPage.java
+
+[33mcommit 106bffb0fb917f4fb78be529c705214600f45aa6[m
+Author: halukenes <halukenes97@gmail.com>
+Date:   Wed Apr 11 13:06:41 2018 +0300
+
+    Finished desing of SignUpPage.java and updated borders and page design on LogInPage.java
+
+[33mcommit 4fb81708e4d609d87c9722b22b6ab9a045f31a1c[m
+Author: halukenes <halukenes97@gmail.com>
+Date:   Wed Apr 11 12:46:52 2018 +0300
+
+    Created SignUpPage.java and updated LogInPage.java
+
+[33mcommit 255f0ed2128a7d3dadd88afeecb7e105e7083036[m
+Author: halukenes <halukenes97@gmail.com>
+Date:   Wed Apr 11 12:41:49 2018 +0300
+
+    Finished design of LogInPage.java
+
+[33mcommit 0a5b33e212f6794b593d6799764ae8c8d6e2f3c2[m
+Author: halukenes <halukenes97@gmail.com>
+Date:   Wed Apr 11 12:18:33 2018 +0300
+
+    Created LogInPage.java
+
+[33mcommit 4e0dbe78fa5924e483515fdc7539b6a667be1baa[m
+Author: halukenes <halukenes97@gmail.com>
+Date:   Tue Apr 10 23:49:29 2018 +0300
+
+    CreateDB.java and Query.java created and completed
+
+[33mcommit 4d16aeb378dc01fb5ffaac95601b9afc2a3a8fed[m
+Author: halukenes <halukenes97@gmail.com>
+Date:   Tue Apr 10 23:25:14 2018 +0300
+
+    Workplace created

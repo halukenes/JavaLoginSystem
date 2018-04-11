@@ -20,14 +20,13 @@ import javax.swing.JPasswordField;
 
 public class LogInPage {
 
-	public  JFrame frame;
-	private JTextField username;
-	private JPasswordField password;
+	public  JFrame             frame;
+	
+	private JTextField         username;
+	private JPasswordField     password;
+	
 	public static final String SQL_STATEMENT = "select * from users";
-
-	/**
-	 * Launch the application.
-	 */
+	
 	public static void main(String[] args) {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
@@ -41,14 +40,11 @@ public class LogInPage {
 		});
 	}
 
-	/**
-	 * Create the application.
-	 */
 	public LogInPage() {
 		initialize();
 	}
 
-	public boolean checkDB(String usern, String passw) throws SQLException {
+	public boolean checkDB(String usern, String passw) throws SQLException {  //this method checks the database whether it includes this user
 		
 		boolean           existInDB         = false;		
 		Connection        connection        = DriverManager.getConnection(CreateDB.JDBC_URL);
@@ -108,7 +104,7 @@ public class LogInPage {
 		btnLogin.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 				try {
-					if(checkDB(username.getText(), password.getText())) {
+					if(checkDB(username.getText(), password.getText())) { //if checkDB return true, user can login, else, user will get a message
 						UserPage userPage = new UserPage();
 						userPage.setVisible(true);
 						frame.dispose();

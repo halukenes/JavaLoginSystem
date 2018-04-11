@@ -10,11 +10,9 @@ public class CreateDB {
 		Class.forName(DRIVER);
 		Connection connection = DriverManager.getConnection(JDBC_URL);
 		//connection.createStatement().execute("create table users(username varchar(20), password varchar(20))");
-		connection.createStatement().execute("insert into users values " + 
-		        "('admin', 'sadecepas'), " + 
-		        "('admin2', 'sadecepas2'), " + 
-		        "('admin3', 'sadecepas3')");
+		//connection.createStatement().execute("DELETE FROM users");
 		System.out.println("channels table created and records succesfully inserted ...");
 	}
 
 }
+//this class is for developer to create a database and initialize it. Developer can change the comments at the top to control the DB.

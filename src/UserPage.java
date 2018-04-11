@@ -23,12 +23,9 @@ import java.awt.event.ActionEvent;
 
 public class UserPage extends JFrame {
 
-	private JPanel contentPane;
+	private JPanel    contentPane;
 	private JTextArea textArea;
-
-	/**
-	 * Launch the application.
-	 */
+	
 	public static void main(String[] args) {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
@@ -41,16 +38,18 @@ public class UserPage extends JFrame {
 			}
 		});
 	}
-
+	
+	//this method shows all the users and their details from the DB.
 	public String userDBDatas() throws SQLException {
 
-		Connection connection = DriverManager.getConnection(CreateDB.JDBC_URL);
-		Statement statement = connection.createStatement();
-		ResultSet resultSet = statement.executeQuery("select * from users");
+		Connection        connection        = DriverManager.getConnection(CreateDB.JDBC_URL);
+		Statement         statement         = connection.createStatement();
+		ResultSet         resultSet         = statement.executeQuery("select * from users");
 		ResultSetMetaData resultSetMetaData = resultSet.getMetaData();
 
-		int columnCount = resultSetMetaData.getColumnCount();
-		String columns = "";
+		int               columnCount       = resultSetMetaData.getColumnCount();
+		String            columns           = "";
+		
 		while (resultSet.next()) {
 			columns = columns + "\n";
 			for (int x = 1; x <= columnCount; x++) {
@@ -59,24 +58,17 @@ public class UserPage extends JFrame {
 				} else
 					columns = columns + "Password: " + resultSet.getString(x) + "\n";
 			}
-
 		}
 
 		if (statement != null)
 			statement.close();
 		if (connection != null)
 			connection.close();
-
-		// System.out.println(columns[0] + ", " + columns[]);
+		
 		return columns;
 
 	}
 
-	/**
-	 * Create the frame.
-	 * 
-	 * @throws SQLException
-	 */
 	public UserPage() throws SQLException {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 460, 450);

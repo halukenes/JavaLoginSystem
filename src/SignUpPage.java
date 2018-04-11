@@ -19,14 +19,11 @@ import java.awt.event.ActionEvent;
 
 public class SignUpPage extends JFrame {
 
-	private JPanel contentPane;
-	private JTextField username;
+	private JPanel         contentPane;
+	private JTextField     username;
 	private JPasswordField password;
 	private JPasswordField cpassword;
-
-	/**
-	 * Launch the application.
-	 */
+	
 	public static void main(String[] args) {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
@@ -39,16 +36,14 @@ public class SignUpPage extends JFrame {
 			}
 		});
 	}
-
+	
+	//this method is for inserting new users to DB
 	public void insertDB(String usern, String passw) throws ClassNotFoundException, SQLException {
 		Class.forName("org.apache.derby.jdbc.EmbeddedDriver");
 		Connection connection = DriverManager.getConnection("jdbc:derby:zadb;create=true");
 		connection.createStatement().execute("insert into users values " + "('" + usern + "', '" + passw + "')");
 	}
-
-	/**
-	 * Create the frame.
-	 */
+	
 	public SignUpPage() {
 		setBounds(100, 100, 460, 350);
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -96,7 +91,7 @@ public class SignUpPage extends JFrame {
 					} else {
 						JOptionPane.showMessageDialog(label, "Your have confirmed your password wrong!");
 					}					
-				} catch (ClassNotFoundException e) {
+				} catch (ClassNotFoundException e) { // these are for expections caused by SQL or Class
 					e.printStackTrace();
 					JOptionPane.showMessageDialog(label, "Error = ClassNotFoundException");
 				} catch (SQLException e) {

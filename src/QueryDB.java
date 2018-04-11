@@ -25,3 +25,4 @@ public class QueryDB {
 	}
 
 }
+//this class is for developer to see all the data in the database
