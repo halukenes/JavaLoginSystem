@@ -49,15 +49,17 @@ public class UserPage extends JFrame {
 
 		int               columnCount       = resultSetMetaData.getColumnCount();
 		String            columns           = "";
+		int               counter           = 1;
 		
 		while (resultSet.next()) {
 			columns = columns + "\n";
 			for (int x = 1; x <= columnCount; x++) {
 				if(x % 2 == 1) {
-					columns = columns + "Username: " + resultSet.getString(x) + "\n";
+					columns = columns + counter + ". Username: " + resultSet.getString(x) + "\n";
 				} else
-					columns = columns + "Password: " + resultSet.getString(x) + "\n";
+					columns = columns + "     Password: " + resultSet.getString(x) + "\n";
 			}
+			counter++;
 		}
 
 		if (statement != null)
