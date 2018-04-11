@@ -23,6 +23,8 @@ public class SignUpPage extends JFrame {
 	private JTextField     username;
 	private JPasswordField password;
 	private JPasswordField cpassword;
+	private JTextField emailadd;
+	private JTextField telephonenumber;
 	
 	public static void main(String[] args) {
 		EventQueue.invokeLater(new Runnable() {
@@ -38,14 +40,14 @@ public class SignUpPage extends JFrame {
 	}
 	
 	//this method is for inserting new users to DB
-	public void insertDB(String usern, String passw) throws ClassNotFoundException, SQLException {
+	public void insertDB(String usern, String passw, String eM, String telNumber) throws ClassNotFoundException, SQLException {
 		Class.forName("org.apache.derby.jdbc.EmbeddedDriver");
 		Connection connection = DriverManager.getConnection("jdbc:derby:zadb;create=true");
-		connection.createStatement().execute("insert into users values " + "('" + usern + "', '" + passw + "')");
+		connection.createStatement().execute("insert into users values " + "('" + usern + "', '" + passw + "', '" + eM + "', '" + telNumber + "')");
 	}
 	
 	public SignUpPage() {
-		setBounds(100, 100, 460, 350);
+		setBounds(100, 100, 460, 450);
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		getContentPane().setLayout(null);
 
@@ -85,7 +87,7 @@ public class SignUpPage extends JFrame {
 			public void actionPerformed(ActionEvent arg0) {
 				try {
 					if(password.getText().equals(cpassword.getText())) {
-						insertDB(username.getText(), password.getText());
+						insertDB(username.getText(), password.getText(), emailadd.getText(), telephonenumber.getText());
 						JOptionPane.showMessageDialog(label, "You successfully signed in!");
 						dispose();
 					} else {
@@ -102,17 +104,17 @@ public class SignUpPage extends JFrame {
 		});
 		btnSubmit.setForeground(Color.BLACK);
 		btnSubmit.setBackground(new Color(0, 102, 255));
-		btnSubmit.setBounds(50, 248, 89, 23);
+		btnSubmit.setBounds(50, 356, 89, 23);
 		getContentPane().add(btnSubmit);
 
 		JButton btnLogin = new JButton("Login");
 		btnLogin.setFont(new Font("Calibri", Font.PLAIN, 12));
-		btnLogin.setBounds(305, 248, 89, 23);
+		btnLogin.setBounds(293, 356, 89, 23);
 		getContentPane().add(btnLogin);
 
 		JLabel lblAlreadyHaveAn = new JLabel("Already have an account?");
 		lblAlreadyHaveAn.setFont(new Font("Calibri", Font.PLAIN, 11));
-		lblAlreadyHaveAn.setBounds(305, 232, 126, 14);
+		lblAlreadyHaveAn.setBounds(293, 340, 126, 14);
 		getContentPane().add(lblAlreadyHaveAn);
 
 		password = new JPasswordField();
@@ -122,6 +124,25 @@ public class SignUpPage extends JFrame {
 		cpassword = new JPasswordField();
 		cpassword.setBounds(50, 211, 210, 20);
 		getContentPane().add(cpassword);
+		
+		JLabel eMail = new JLabel("Email Address");
+		eMail.setFont(new Font("Calibri", Font.BOLD, 12));
+		eMail.setBounds(50, 247, 89, 14);
+		getContentPane().add(eMail);
+		
+		JLabel lblAdress = new JLabel("Telephone Number");
+		lblAdress.setFont(new Font("Calibri", Font.BOLD, 12));
+		lblAdress.setBounds(50, 299, 94, 14);
+		getContentPane().add(lblAdress);
+		
+		emailadd = new JTextField();
+		emailadd.setColumns(10);
+		emailadd.setBounds(50, 263, 210, 20);
+		getContentPane().add(emailadd);
+		
+		telephonenumber = new JTextField();
+		telephonenumber.setColumns(10);
+		telephonenumber.setBounds(50, 315, 210, 20);
+		getContentPane().add(telephonenumber);
 	}
-
 }

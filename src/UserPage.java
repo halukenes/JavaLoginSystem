@@ -54,10 +54,16 @@ public class UserPage extends JFrame {
 		while (resultSet.next()) {
 			columns = columns + "\n";
 			for (int x = 1; x <= columnCount; x++) {
-				if(x % 2 == 1) {
+				if(x % 5 == 1) {
 					columns = columns + counter + ". Username: " + resultSet.getString(x) + "\n";
-				} else
+				} if(x % 5 == 2) {
 					columns = columns + "     Password: " + resultSet.getString(x) + "\n";
+				} if(x % 5 == 3) {
+					columns = columns + "     Email Address: " + resultSet.getString(x) + "\n";
+				} if(x % 5 == 4) {
+					columns = columns + "     Telephone Number: " + resultSet.getString(x) + "\n";
+				}
+					
 			}
 			counter++;
 		}

@@ -8,15 +8,19 @@ public class CreateDB {
 
 	public static void main(String[] args) throws ClassNotFoundException, SQLException {
 		Connection connection = DriverManager.getConnection(JDBC_URL);
-		if (connection == null) {
+		
+		//if (connection == null) {
 			Class.forName(DRIVER);
-			connection.createStatement().execute("create table users(username varchar(20), password varchar(20))");
-			// connection.createStatement().execute("DELETE FROM users");
+			//connection.createStatement().execute("create table users(username varchar(20), password varchar(20), email varchar(25), telNu varchar(20))");
+			//connection.createStatement().execute("DELETE FROM users");
+			//connection.createStatement().execute("drop table users");
 			System.out.println("channels table created and records succesfully inserted ...");
-		}
+	//	}
 
 		LogInPage logInPage = new LogInPage();
 		logInPage.frame.setVisible(true);
+		
+		
 	}
 
 }
