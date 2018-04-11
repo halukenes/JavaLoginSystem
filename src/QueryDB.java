@@ -6,7 +6,7 @@ import java.sql.SQLException;
 import java.sql.Statement;
 
 public class QueryDB {
-	public static final String SQL_STATEMENT = "select * from channels";
+	public static final String SQL_STATEMENT = "select * from users";
 	public static void main(String[] args) throws SQLException {
 		Connection connection = DriverManager.getConnection(CreateDB.JDBC_URL);
 		Statement statement = connection.createStatement();

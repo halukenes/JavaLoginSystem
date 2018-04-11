@@ -9,11 +9,11 @@ public class CreateDB {
 	public static void main(String[] args) throws ClassNotFoundException, SQLException {
 		Class.forName(DRIVER);
 		Connection connection = DriverManager.getConnection(JDBC_URL);
-		connection.createStatement().execute("create table channels(channel varchar(20), topic varchar(20), videoclip varchar(20))");
-		connection.createStatement().execute("insert into channels values " + 
-		        "('oodp', 'creational', 'singleton'), " + 
-		        "('oodp', 'creational', 'factory method'), " + 
-		        "('oodp', 'creational', 'abstract factory')");
+		//connection.createStatement().execute("create table users(username varchar(20), password varchar(20))");
+		connection.createStatement().execute("insert into users values " + 
+		        "('admin', 'sadecepas'), " + 
+		        "('admin2', 'sadecepas2'), " + 
+		        "('admin3', 'sadecepas3')");
 		System.out.println("channels table created and records succesfully inserted ...");
 	}
 

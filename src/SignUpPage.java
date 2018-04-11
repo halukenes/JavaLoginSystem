@@ -9,13 +9,14 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
 import javax.swing.border.EmptyBorder;
+import javax.swing.JPasswordField;
 
 public class SignUpPage extends JFrame {
 
 	private JPanel contentPane;
 	private JTextField username;
-	private JTextField password;
-	private JTextField cpassword;
+	private JPasswordField password;
+	private JPasswordField cpassword;
 
 	/**
 	 * Launch the application.
@@ -66,20 +67,10 @@ public class SignUpPage extends JFrame {
 		lblPassword.setBounds(50, 143, 51, 14);
 		getContentPane().add(lblPassword);
 		
-		password = new JTextField();
-		password.setColumns(10);
-		password.setBounds(50, 159, 210, 20);
-		getContentPane().add(password);
-		
 		JLabel lblPassword_1 = new JLabel("Confirm Password");
 		lblPassword_1.setFont(new Font("Calibri", Font.BOLD, 12));
 		lblPassword_1.setBounds(50, 195, 89, 14);
 		getContentPane().add(lblPassword_1);
-		
-		cpassword = new JTextField();
-		cpassword.setColumns(10);
-		cpassword.setBounds(50, 211, 210, 20);
-		getContentPane().add(cpassword);
 		
 		JButton btnSubmit = new JButton("Submit");
 		btnSubmit.setForeground(Color.BLACK);
@@ -94,6 +85,14 @@ public class SignUpPage extends JFrame {
 		JLabel lblAlreadyHaveAn = new JLabel("Already have an account?");
 		lblAlreadyHaveAn.setBounds(305, 232, 126, 14);
 		getContentPane().add(lblAlreadyHaveAn);
+		
+		password = new JPasswordField();
+		password.setBounds(50, 159, 210, 20);
+		getContentPane().add(password);
+		
+		cpassword = new JPasswordField();
+		cpassword.setBounds(50, 211, 210, 20);
+		getContentPane().add(cpassword);
 	}
 
 }
