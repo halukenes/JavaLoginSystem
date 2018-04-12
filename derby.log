@@ -1,11 +1,11 @@
 ----------------------------------------------------------------
-Wed Apr 11 18:49:54 EET 2018:
-Booting Derby version The Apache Software Foundation - Apache Derby - 10.14.1.0 - (1808820): instance a816c00e-0162-b566-29ed-0000071a2f50 
-on database directory C:\Users\Enes Haluk Öztürk\workspace\Assignment3\zadb with class loader sun.misc.Launcher$AppClassLoader@28d93b30 
-Loaded from file:/C:/Users/Enes%20Haluk%20%c3%96zt%c3%bcrk/workspace/Assignment3/lib/derby.jar
+Thu Apr 12 17:21:30 EET 2018:
+Booting Derby version The Apache Software Foundation - Apache Derby - 10.14.1.0 - (1808820): instance a816c00e-0162-ba3b-9734-000006dd7868 
+on database directory C:\Users\Enes Haluk Öztürk\JavaLoginSystem\zadb with class loader sun.misc.Launcher$AppClassLoader@28d93b30 
+Loaded from file:/C:/Users/Enes%20Haluk%20%c3%96zt%c3%bcrk/JavaLoginSystem/lib/derby.jar
 java.vendor=Oracle Corporation
 java.runtime.version=1.8.0_161-b12
-user.dir=C:\Users\Enes Haluk Öztürk\workspace\Assignment3
+user.dir=C:\Users\Enes Haluk Öztürk\JavaLoginSystem
 os.name=Windows 10
 os.arch=amd64
 os.version=10.0

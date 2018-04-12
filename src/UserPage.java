@@ -1,3 +1,4 @@
+import java.awt.BorderLayout;
 import java.awt.EventQueue;
 
 import javax.swing.JFrame;
@@ -17,6 +18,7 @@ import javax.swing.SwingConstants;
 import javax.swing.DropMode;
 import javax.swing.JTextArea;
 import javax.swing.JScrollPane;
+import javax.swing.JTable;
 import javax.swing.JButton;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
@@ -25,6 +27,7 @@ public class UserPage extends JFrame {
 
 	private JPanel    contentPane;
 	private JTextArea textArea;
+	private JTable    table;
 	
 	public static void main(String[] args) {
 		EventQueue.invokeLater(new Runnable() {
@@ -40,7 +43,7 @@ public class UserPage extends JFrame {
 	}
 	
 	//this method shows all the users and their details from the DB.
-	public String userDBDatas() throws SQLException {
+	public String[] userDBColumns() throws SQLException {
 
 		Connection        connection        = DriverManager.getConnection(CreateDB.JDBC_URL);
 		Statement         statement         = connection.createStatement();
@@ -48,32 +51,48 @@ public class UserPage extends JFrame {
 		ResultSetMetaData resultSetMetaData = resultSet.getMetaData();
 
 		int               columnCount       = resultSetMetaData.getColumnCount();
-		String            columns           = "";
-		int               counter           = 1;
+		String[]          columnNames       = new String[columnCount];
 		
-		while (resultSet.next()) {
-			columns = columns + "\n";
-			for (int x = 1; x <= columnCount; x++) {
-				if(x % 5 == 1) {
-					columns = columns + counter + ". Username: " + resultSet.getString(x) + "\n";
-				} if(x % 5 == 2) {
-					columns = columns + "     Password: " + resultSet.getString(x) + "\n";
-				} if(x % 5 == 3) {
-					columns = columns + "     Email Address: " + resultSet.getString(x) + "\n";
-				} if(x % 5 == 4) {
-					columns = columns + "     Telephone Number: " + resultSet.getString(x) + "\n";
-				}
-					
-			}
-			counter++;
-		}
+		for (int x = 1; x <= columnCount; x++) 
+			columnNames[x-1] = resultSetMetaData.getColumnName(x) ;
 
 		if (statement != null)
 			statement.close();
 		if (connection != null)
 			connection.close();
+		return columnNames;
+
+	}
+	
+	public String[][] userDBRows() throws SQLException {
+
+		Connection        connection        = DriverManager.getConnection(CreateDB.JDBC_URL);
+		Statement         statement         = connection.createStatement();
+		Statement         statement2        = connection.createStatement();
+		ResultSet         resultSet         = statement.executeQuery("select * from users");
+		ResultSetMetaData resultSetMetaData = resultSet.getMetaData();
+	//	ResultSet         rowCount          = statement2.executeQuery("select count(username) from users");
+
+		int               columnCount       = resultSetMetaData.getColumnCount();
+		int               counter           = 0;
+	//	String            myString          = rowCount.getString(1);
+	//	int               foo               = Integer.parseInt(myString);
+		String[][]        rows              = new String[columnCount][10];
 		
-		return columns;
+		while (resultSet.next()){			
+			for (int x = 1; x <= columnCount; x++) {
+				rows[counter][x-1] = resultSet.getString(x);					
+			}
+			counter++;
+		}
+
+		if (statement  != null)
+			statement.close();
+		if (statement2 != null)
+			statement2.close();
+		if (connection != null)
+			connection.close();
+		return rows;
 
 	}
 
@@ -95,11 +114,11 @@ public class UserPage extends JFrame {
 		lblYouCanSee.setBounds(50, 66, 250, 14);
 		contentPane.add(lblYouCanSee);
 		
-		textArea = new JTextArea();
+	/*	textArea = new JTextArea();
 		textArea.setFont(new Font("Calibri", Font.PLAIN, 11));
 		textArea.setBounds(50, 91, 341, 268);
 		contentPane.add(textArea);
-		textArea.setText(userDBDatas());
+		textArea.setText(userDBDatas());*/
 		
 		JButton btnLogOut = new JButton("Log Out");
 		btnLogOut.setFont(new Font("Calibri", Font.PLAIN, 12));
@@ -113,9 +132,17 @@ public class UserPage extends JFrame {
 		btnLogOut.setBounds(302, 377, 89, 23);
 		contentPane.add(btnLogOut);
 		
+	/*	JScrollPane scrollPane = new JScrollPane();
+		scrollPane.setBounds(50, 91, 342, 268);
+		contentPane.add(scrollPane);
+		scrollPane.setViewportView(textArea);*/
+		
 		JScrollPane scrollPane = new JScrollPane();
 		scrollPane.setBounds(50, 91, 342, 268);
 		contentPane.add(scrollPane);
-		scrollPane.setViewportView(textArea);
+		
+		table = new JTable(userDBRows(), userDBColumns());
+		scrollPane.setViewportView(table);
+		
 	}
 }

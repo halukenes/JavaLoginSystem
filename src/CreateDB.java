@@ -13,8 +13,8 @@ public class CreateDB {
 		Class.forName(DRIVER);
 		Connection connection = DriverManager.getConnection(JDBC_URL);
 	    
-		connection.createStatement().execute("create table users(username varchar(20), password varchar(20), email varchar(25), telNu varchar(20))");
-	    //connection.createStatement().execute("DELETE FROM users");
+		//connection.createStatement().execute("create table users(username varchar(20), password varchar(20), email varchar(25), telNu varchar(20))");
+	    connection.createStatement().execute("DELETE FROM users");
 		//connection.createStatement().execute("drop table users");
 		System.out.println("channels table created and records succesfully inserted ...");
 

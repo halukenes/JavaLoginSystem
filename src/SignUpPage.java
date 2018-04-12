@@ -23,8 +23,8 @@ public class SignUpPage extends JFrame {
 	private JTextField     username;
 	private JPasswordField password;
 	private JPasswordField cpassword;
-	private JTextField emailadd;
-	private JTextField telephonenumber;
+	private JTextField     emailadd;
+	private JTextField     telephonenumber;
 	
 	public static void main(String[] args) {
 		EventQueue.invokeLater(new Runnable() {
